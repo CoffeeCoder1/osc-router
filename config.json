@@ -1,0 +1,39 @@
+{
+	"devices": [
+		{
+			"id": "open_stage_control",
+			"host_address": "127.0.0.1:3000",
+			"client_address": "127.0.0.1:3001"
+		},
+		{
+			"id": "open_stage_control_2",
+			"host_address": "127.0.0.1:3002",
+			"client_address": "127.0.0.1:3003"
+		},
+		{
+			"id": "protokol",
+			"host_address": "127.0.0.1:8001",
+			"client_address": "127.0.0.1:8002"
+		}
+	],
+	"forwarders": [
+		{
+			"recieve_device": "open_stage_control",
+			"recieve_pattern": "/button_2",
+			"send_device": "protokol",
+			"send_address": "/button_test"
+		},
+		{
+			"recieve_device": "open_stage_control_2",
+			"recieve_pattern": "/button_3",
+			"send_device": "open_stage_control",
+			"send_address": "/button_2"
+		},
+		{
+			"recieve_device": "open_stage_control_2",
+			"recieve_pattern": "/button_3",
+			"send_device": "protokol",
+			"send_address": "/button_test_2"
+		}
+	]
+}
